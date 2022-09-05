@@ -1,0 +1,19 @@
+#
+# RISC-V translation routines for the DGX extension
+#
+# SPDX-License-Identifier: LGPL-2.1-or-later
+#
+# Reference: DGX custom instructions
+# https://docs.google.com/document/d/194Fczvf9CPwYKq9yUaia4GMTj4MyUZIl/edit?usp=sharing&ouid=114908267067723833513&rtpof=true&sd=true
+
+# Fields
+%rs1  15:5
+%rs2  20:5
+%rd   7:5
+
+# Argument sets
+&r rd rs1 !extern
+
+# Formats
+@r        ...... . ..... ..... ... ..... ....... &r %rs1 %rd
+xlist     000000 0 00000 ..... 100 ..... 1100111 @r
